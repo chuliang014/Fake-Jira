@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { SearchPanel } from "./search-panel";
 import { List } from "./list";
 import { cleanObject } from "utils";
@@ -14,8 +14,9 @@ export const ProjectListScreen = () => {
     name: "",
     personId: ""
   });
-  const debouncedParam = useDebounce(param, 2000);
+  const debouncedParam = useDebounce(param, 200);
   const [list, setList] = useState([]);
+
   useEffect(() => { 
     fetch(
       `${apiURL}/projects?${qs.stringify(cleanObject(debouncedParam))}`
